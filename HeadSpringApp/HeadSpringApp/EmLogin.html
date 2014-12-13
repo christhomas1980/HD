@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Employee Login</title>
+    <link rel="stylesheet" 
+    href="http://ajax.googleapis.com/ajax/libs/dojo/1.9.1/dojo/resources/dojo.css" />
+    <link rel="stylesheet" 
+    href="http://ajax.googleapis.com/ajax/libs/dojo/1.9.1/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" 
+    href="http://ajax.googleapis.com/ajax/libs/dojo/1.9.1/dojox/grid/resources/claroGrid.css" />
+    <!-- load dojo and provide config via data attribute -->
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.9.1/dojo/dojo.js" 
+    data-dojo-config="async: true, isDebug: true, parseOnLoad: true">
+    </script>
+</head>
+<body class="claro">
+    <div style="width: 700px; margin: 10px; height: 450px; 
+    min-height: 450px; border: 1px solid #333333;
+        overflow: auto">
+        <link rel="stylesheet" 
+        href="http://ajax.googleapis.com/ajax/libs/dojo/1.9.1/dojox/grid/enhanced/resources/claro/EnhancedGrid.css" />
+        <script>
+            var dataStoreBlog, gridBlog;
+            require(["dijit/form/Button", "dojo/dom", "dojo/domReady!"], function (Button, dom) {
+                // Create a button programmatically:
+                var myButton = new Button({
+                    label: "Add",
+                    onClick: function () {
+                        window.location = 'http://localhost:1387/EmpDataBase.html'
+
+                    }
+                }, "btnAdd").startup();
+            });
+
+            require(["dijit/form/Button", "dojo/dom", "dojo/domReady!"], function (Button, dom) {
+                // Create a button programmatically:
+                var myButton = new Button({
+                    label: "Delete",
+                    onClick: function () {
+                        // Do something:
+                        //                        dom.byId("result1").innerHTML += "Thank you! ";
+                    }
+                }, "btnDelete").startup();
+            });
+
+            require(["dijit/form/Button", "dojo/dom", "dojo/domReady!"], function (Button, dom) {
+                // Create a button programmatically:
+                var myButton = new Button({
+                    label: "Save",
+                    onClick: function () {
+                        // Do something:
+                        //                        dom.byId("result1").innerHTML += "Thank you! ";
+                    }
+                }, "btnSave").startup();
+            });
+
+            require(["dijit/form/Button", "dojo/dom", "dojo/domReady!"], function (Button, dom) {
+                // Create a button programmatically:
+                var myButton = new Button({
+                    label: "Refresh",
+                    onClick: function () {
+                        // Do something:
+                        //                        dom.byId("result1").innerHTML += "Thank you! ";
+                    }
+                }, "btnRefresh").startup();
+            });
+
+            require([
+            "dojo/store/JsonRest",
+            "dojo/store/Memory",
+            "dojo/store/Cache",
+            "dojox/grid/DataGrid",
+            "dojo/data/ObjectStore",
+            "dojox/grid/enhanced/plugins/Pagination",
+            "dojo/data/ObjectStore",
+            "dojo/dom-attr",
+            "dojo/domReady!"
+            ],
+
+            function () {
+                layoutCountries = [[
+                    { field: "abbr", name: "Abbreviation", width: 10 },
+                    { field: "name", name: "Name", width: 10 },
+                    { field: "capital", name: "Capital", width: 'auto' }
+                ]];
+
+                storeData =  [
+                    { abbr:'ec', name:'Ecuador',           capital:'Quito' },
+                    { abbr:'eg', name:'Egypt',             capital:'Cairo' },
+                    { abbr:'sv', name:'El Salvador',       capital:'San Salvador' },
+                    { abbr:'gq', name:'Equatorial Guinea', capital:'Malabo' },
+                    { abbr:'er', name:'Eritrea',           capital:'Asmara'  },
+                    { abbr:'ee', name:'Estonia',           capital:'Tallinn' },
+                    { abbr:'et', name:'Ethiopia',          capital:'Addis Ababa' }
+                ];
+            });
+   
+        </script>
+        <div style="width: 400px; height: 300px;">
+            <button id="btnAdd" type="button"></button>
+            <input id="Text1" type="text" />
+            <input id="Password1" type="password" />
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

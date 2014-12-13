@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Employee Database</title>
+    <link rel="stylesheet" 
+    href="http://ajax.googleapis.com/ajax/libs/dojo/1.9.1/dojo/resources/dojo.css" />
+    <link rel="stylesheet" 
+    href="http://ajax.googleapis.com/ajax/libs/dojo/1.9.1/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" 
+    href="http://ajax.googleapis.com/ajax/libs/dojo/1.9.1/dojox/grid/resources/claroGrid.css" />
+    <!-- load dojo and provide config via data attribute -->
+    <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.9.1/dojo/dojo.js" 
+    data-dojo-config="async: true, isDebug: true, parseOnLoad: true">
+    </script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+</head>
+<body class="claro">
+    <div style="width: 700px; margin: 10px; height: 450px; 
+    min-height: 450px; border: 1px solid #333333;
+        overflow: auto">
+   
+
+        <script>
+
+            $(function () {
+                $("button").button().click(function (event) {
+          var url1 = "HeadSpringService.svc/AjaxEndpoint/";
+          $.ajax({
+              type: "POST",
+              url: "<%=ResolveUrl(" + url1 + ") %>",
+              data: "{ controlName:'" + fd + "'}",
+              contentType: "application/json; charset=utf-8",
+              processData: false,
+              dataType: "json",
+              success: function (response) {
+
+
+
+              }
+
+
+
+          })
+      });
+            });
+            var dataStoreBlog, gridBlog;
+           
+
+            require([
+            "dojo/store/JsonRest",
+            "dojo/store/Memory",
+            "dojo/store/Cache",
+            "dojox/grid/DataGrid",
+            "dojo/data/ObjectStore",
+            "dojox/grid/enhanced/plugins/Pagination",
+            "dojo/data/ObjectStore",
+            "dojo/dom-attr",
+            "dojo/domReady!"
+            ],
+
+            function () {
+                layoutCountries = [[
+                    { field: "abbr", name: "Abbreviation", width: 10 },
+                    { field: "name", name: "Name", width: 10 },
+                    { field: "capital", name: "Capital", width: 'auto' }
+                ]];
+
+                storeData =  [
+                    { abbr:'ec', name:'Ecuador',           capital:'Quito' },
+                    { abbr:'eg', name:'Egypt',             capital:'Cairo' },
+                    { abbr:'sv', name:'El Salvador',       capital:'San Salvador' },
+                    { abbr:'gq', name:'Equatorial Guinea', capital:'Malabo' },
+                    { abbr:'er', name:'Eritrea',           capital:'Asmara'  },
+                    { abbr:'ee', name:'Estonia',           capital:'Tallinn' },
+                    { abbr:'et', name:'Ethiopia',          capital:'Addis Ababa' }
+                ];
+            });
+   
+        </script>
+        <div style="width: 400px; height: 300px;">
+        <button>A button element</button>
+            <button id="btnAdd" type="button"></button>
+            <button id="btnDelete" type="button"></button>
+            <button id="btnSave" type="button"></button>
+            <button id="btnRefresh" type="button"></button>
+            <h5>Enter an Employee name:</h5>
+             <input id="txtSearchFields" type="text" />
+            <button id="btnSearch" type="button"></button>
+            <div data-dojo-type="dojo.store.Memory" data-dojo-props="data:storeData, idProperty:'abbr'" data-dojo-id="countryStore">
+            </div>
+
+            <!-- Create the model bridging the store and the Tree -->
+            <div data-dojo-type="dojo.data.ObjectStore" data-dojo-id="countryStoreForGrid"
+                 data-dojo-props="objectStore: countryStore"></div>
+
+            <div id="grid"
+                 data-dojo-type="dojox/grid/DataGrid"
+                 data-dojo-props="store:countryStoreForGrid,
+          structure:'layoutCountries',
+          queryOptions:{deep:true},
+          query:{},
+          rowsPerPage:40">
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

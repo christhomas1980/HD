@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeadSpringApp", "HeadSpringApp\HeadSpringApp.csproj", "{DD2C1CB1-74C1-49B6-80FB-F5569AED87C4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{99E08FB0-DBB9-4CC2-B544-810CE342E537} = {99E08FB0-DBB9-4CC2-B544-810CE342E537}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeadSpringWcf", "..\HeadSpringWcf\HeadSpringWcf.csproj", "{99E08FB0-DBB9-4CC2-B544-810CE342E537}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD2C1CB1-74C1-49B6-80FB-F5569AED87C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD2C1CB1-74C1-49B6-80FB-F5569AED87C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD2C1CB1-74C1-49B6-80FB-F5569AED87C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD2C1CB1-74C1-49B6-80FB-F5569AED87C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99E08FB0-DBB9-4CC2-B544-810CE342E537}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99E08FB0-DBB9-4CC2-B544-810CE342E537}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99E08FB0-DBB9-4CC2-B544-810CE342E537}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99E08FB0-DBB9-4CC2-B544-810CE342E537}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
