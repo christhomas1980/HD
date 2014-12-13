@@ -1,6 +1,0 @@
-C:\Users\Mektrik\Desktop\HeadSpring\HeadSpringWcf\bin\HeadSpringService.svc
-C:\Users\Mektrik\Desktop\HeadSpring\HeadSpringWcf\bin\HeadSpringService.svc.cs
-C:\Users\Mektrik\Desktop\HeadSpring\HeadSpringWcf\bin\HeadSpringWcf.dll
-C:\Users\Mektrik\Desktop\HeadSpring\HeadSpringWcf\bin\HeadSpringWcf.pdb
-C:\Users\Mektrik\Desktop\HeadSpring\HeadSpringWcf\obj\Debug\HeadSpringWcf.dll
-C:\Users\Mektrik\Desktop\HeadSpring\HeadSpringWcf\obj\Debug\HeadSpringWcf.pdb
