@@ -26,7 +26,7 @@ namespace HeadSpringApp.ServiceReference1 {
         private string EmployeeEmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int EmployeeIDField;
+        private string EmployeeIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmployeeJobTitleField;
@@ -39,6 +39,9 @@ namespace HeadSpringApp.ServiceReference1 {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmployeePhoneNumberField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int EmployeeRoleField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -64,12 +67,12 @@ namespace HeadSpringApp.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int EmployeeID {
+        public string EmployeeID {
             get {
                 return this.EmployeeIDField;
             }
             set {
-                if ((this.EmployeeIDField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.EmployeeIDField, value) != true)) {
                     this.EmployeeIDField = value;
                     this.RaisePropertyChanged("EmployeeID");
                 }
@@ -128,6 +131,19 @@ namespace HeadSpringApp.ServiceReference1 {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int EmployeeRole {
+            get {
+                return this.EmployeeRoleField;
+            }
+            set {
+                if ((this.EmployeeRoleField.Equals(value) != true)) {
+                    this.EmployeeRoleField = value;
+                    this.RaisePropertyChanged("EmployeeRole");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -143,16 +159,19 @@ namespace HeadSpringApp.ServiceReference1 {
     public interface IHeadSpringService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeadSpringService/GetEmployee", ReplyAction="http://tempuri.org/IHeadSpringService/GetEmployeeResponse")]
-        HeadSpringApp.ServiceReference1.Employee[] GetEmployee(HeadSpringApp.ServiceReference1.Employee[] getEmployeeList);
+        System.Data.DataSet GetEmployee(string EmployeeName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeadSpringService/DeleteEmployee", ReplyAction="http://tempuri.org/IHeadSpringService/DeleteEmployeeResponse")]
-        void DeleteEmployee(HeadSpringApp.ServiceReference1.Employee[] deleteEmployees);
+        System.Data.DataSet DeleteEmployee(System.Data.DataSet deleteEmployees);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeadSpringService/AddEmployee", ReplyAction="http://tempuri.org/IHeadSpringService/AddEmployeeResponse")]
-        void AddEmployee(HeadSpringApp.ServiceReference1.Employee[] addEmployees);
+        System.Data.DataSet AddEmployee(System.Data.DataSet addEmployees);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeadSpringService/UpdateEmployee", ReplyAction="http://tempuri.org/IHeadSpringService/UpdateEmployeeResponse")]
-        void UpdateEmployee(HeadSpringApp.ServiceReference1.Employee[] updateEmployees);
+        System.Data.DataSet UpdateEmployee(System.Data.DataSet updateEmployees);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeadSpringService/EmployeeLogin", ReplyAction="http://tempuri.org/IHeadSpringService/EmployeeLoginResponse")]
+        HeadSpringApp.ServiceReference1.Employee[] EmployeeLogin(string LoginName, string Password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -182,20 +201,24 @@ namespace HeadSpringApp.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public HeadSpringApp.ServiceReference1.Employee[] GetEmployee(HeadSpringApp.ServiceReference1.Employee[] getEmployeeList) {
-            return base.Channel.GetEmployee(getEmployeeList);
+        public System.Data.DataSet GetEmployee(string EmployeeName) {
+            return base.Channel.GetEmployee(EmployeeName);
         }
         
-        public void DeleteEmployee(HeadSpringApp.ServiceReference1.Employee[] deleteEmployees) {
-            base.Channel.DeleteEmployee(deleteEmployees);
+        public System.Data.DataSet DeleteEmployee(System.Data.DataSet deleteEmployees) {
+            return base.Channel.DeleteEmployee(deleteEmployees);
         }
         
-        public void AddEmployee(HeadSpringApp.ServiceReference1.Employee[] addEmployees) {
-            base.Channel.AddEmployee(addEmployees);
+        public System.Data.DataSet AddEmployee(System.Data.DataSet addEmployees) {
+            return base.Channel.AddEmployee(addEmployees);
         }
         
-        public void UpdateEmployee(HeadSpringApp.ServiceReference1.Employee[] updateEmployees) {
-            base.Channel.UpdateEmployee(updateEmployees);
+        public System.Data.DataSet UpdateEmployee(System.Data.DataSet updateEmployees) {
+            return base.Channel.UpdateEmployee(updateEmployees);
+        }
+        
+        public HeadSpringApp.ServiceReference1.Employee[] EmployeeLogin(string LoginName, string Password) {
+            return base.Channel.EmployeeLogin(LoginName, Password);
         }
     }
 }

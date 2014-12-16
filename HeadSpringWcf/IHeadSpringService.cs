@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Data;
 
 namespace HeadSpringWcf
 {
@@ -12,16 +13,19 @@ namespace HeadSpringWcf
     public interface IHeadSpringService
     {
         [OperationContract]
-        List<Employee> GetEmployee(List<Employee> getEmployeeList);
+        DataSet GetEmployee(string EmployeeName);
 
         [OperationContract]
-        void DeleteEmployee(List<Employee> deleteEmployees);
+        DataSet DeleteEmployee(DataSet deleteEmployees);
 
         [OperationContract]
-        void AddEmployee(List<Employee> addEmployees);
+        DataSet AddEmployee(DataSet addEmployees);
 
         [OperationContract]
-        void UpdateEmployee(List<Employee> updateEmployees);
+        DataSet UpdateEmployee(DataSet updateEmployees);
+
+        [OperationContract]
+        List<Employee> EmployeeLogin(string LoginName, string Password);
 
     }
 }

@@ -12,7 +12,7 @@ namespace HeadSpringWcf
         [DataMember]
         public string EmployeeName { get; set; }
         [DataMember]
-        public int EmployeeID { get; set; }
+        public string EmployeeID { get; set; }
         [DataMember]
         public string EmployeeJobTitle{ get; set; }
         [DataMember]
@@ -21,5 +21,7 @@ namespace HeadSpringWcf
         public string EmployeeEmail { get; set; }
         [DataMember]
         public string EmployeePhoneNumber { get; set; }
+        [DataMember]
+        public int EmployeeRole { get; set; }
     }
 }

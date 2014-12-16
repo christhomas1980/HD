@@ -4,7 +4,8 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:29568/HeadSpringService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:29568/HeadSpringService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:29568/HeadSpringService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HeadSpringWcf" />
+      <xsd:import schemaLocation="http://localhost:29568/HeadSpringService.svc?xsd=xsd2" />
+      <xsd:import schemaLocation="http://localhost:29568/HeadSpringService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/HeadSpringWcf" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IHeadSpringService_GetEmployee_InputMessage">
@@ -31,6 +32,12 @@
   <wsdl:message name="IHeadSpringService_UpdateEmployee_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateEmployeeResponse" />
   </wsdl:message>
+  <wsdl:message name="IHeadSpringService_EmployeeLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmployeeLogin" />
+  </wsdl:message>
+  <wsdl:message name="IHeadSpringService_EmployeeLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmployeeLoginResponse" />
+  </wsdl:message>
   <wsdl:portType name="IHeadSpringService">
     <wsdl:operation name="GetEmployee">
       <wsdl:input wsaw:Action="http://tempuri.org/IHeadSpringService/GetEmployee" message="tns:IHeadSpringService_GetEmployee_InputMessage" />
@@ -47,6 +54,10 @@
     <wsdl:operation name="UpdateEmployee">
       <wsdl:input wsaw:Action="http://tempuri.org/IHeadSpringService/UpdateEmployee" message="tns:IHeadSpringService_UpdateEmployee_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IHeadSpringService/UpdateEmployeeResponse" message="tns:IHeadSpringService_UpdateEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeadSpringService/EmployeeLogin" message="tns:IHeadSpringService_EmployeeLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeadSpringService/EmployeeLoginResponse" message="tns:IHeadSpringService_EmployeeLogin_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IHeadSpringService" type="tns:IHeadSpringService">
@@ -80,6 +91,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateEmployee">
       <soap:operation soapAction="http://tempuri.org/IHeadSpringService/UpdateEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmployeeLogin">
+      <soap:operation soapAction="http://tempuri.org/IHeadSpringService/EmployeeLogin" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

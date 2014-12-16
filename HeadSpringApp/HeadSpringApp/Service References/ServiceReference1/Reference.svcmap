@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ab7612df-923b-41d3-85f2-5fe51ca72f94" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2db3a5cb-dd67-443c-a6ab-e028a6aaa1a6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -21,11 +21,12 @@
     <MetadataSource Address="http://localhost:29568/HeadSpringService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="HeadSpringService.disco" MetadataType="Disco" ID="a2aa2c08-aaf8-4ee7-8b8d-c6066ac7f313" SourceId="1" SourceUrl="http://localhost:29568/HeadSpringService.svc?disco" />
-    <MetadataFile FileName="HeadSpringService.xsd" MetadataType="Schema" ID="f43be39e-6af4-42c5-add7-5e967c2704e1" SourceId="1" SourceUrl="http://localhost:29568/HeadSpringService.svc?xsd=xsd1" />
-    <MetadataFile FileName="HeadSpringService1.xsd" MetadataType="Schema" ID="483e999d-f718-4e94-b029-3271a4dcd354" SourceId="1" SourceUrl="http://localhost:29568/HeadSpringService.svc?xsd=xsd2" />
-    <MetadataFile FileName="HeadSpringService.wsdl" MetadataType="Wsdl" ID="4fbf2a0a-9902-40d5-b60c-641df352a632" SourceId="1" SourceUrl="http://localhost:29568/HeadSpringService.svc?wsdl" />
-    <MetadataFile FileName="HeadSpringService2.xsd" MetadataType="Schema" ID="fbfbcdc5-f5be-44c3-a849-4425e4da7344" SourceId="1" SourceUrl="http://localhost:29568/HeadSpringService.svc?xsd=xsd0" />
+    <MetadataFile FileName="HeadSpringService1.xsd" MetadataType="Schema" ID="ca741fe4-3a10-4aa9-9916-66c68f3ed66f" SourceId="1" SourceUrl="http://localhost:29568/HeadSpringService.svc?xsd=xsd2" />
+    <MetadataFile FileName="HeadSpringService3.xsd" MetadataType="Schema" ID="74dcd60b-8596-40d7-84c7-916a830a003a" SourceId="1" SourceUrl="http://localhost:29568/HeadSpringService.svc?xsd=xsd3" />
+    <MetadataFile FileName="HeadSpringService2.xsd" MetadataType="Schema" ID="8dd7e7ce-77b5-4553-86cb-150be695a569" SourceId="1" SourceUrl="http://localhost:29568/HeadSpringService.svc?xsd=xsd0" />
+    <MetadataFile FileName="HeadSpringService.xsd" MetadataType="Schema" ID="dcb0cc05-7522-4baf-a671-dd3632dc5121" SourceId="1" SourceUrl="http://localhost:29568/HeadSpringService.svc?xsd=xsd1" />
+    <MetadataFile FileName="HeadSpringService.disco" MetadataType="Disco" ID="5b0ddf94-79ee-453f-853d-01f5da091ae7" SourceId="1" SourceUrl="http://localhost:29568/HeadSpringService.svc?disco" />
+    <MetadataFile FileName="HeadSpringService.wsdl" MetadataType="Wsdl" ID="4d23ad91-0a22-4e57-af56-521cadd98fac" SourceId="1" SourceUrl="http://localhost:29568/HeadSpringService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
