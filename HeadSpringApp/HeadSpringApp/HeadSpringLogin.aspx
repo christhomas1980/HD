@@ -16,10 +16,10 @@
   </tr>
     <tr>
       <td><asp:Label ID="Label2" Text="Password" runat="server"/></td>
-    <td>       <asp:TextBox ID="txtPassWord" runat="server" TextMode="Password"></asp:TextBox></td>
+    <td> <asp:TextBox ID="txtPassWord" runat="server" TextMode="Password"></asp:TextBox></td>
   </tr>
     <tr>
-        <td><asp:Button ID="btnLogin" runat="server" Text="Login" /></td>
+        <td><asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" /></td>
   </tr>
 </table>
 

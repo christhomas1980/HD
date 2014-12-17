@@ -17,13 +17,11 @@ namespace HeadSpringWcf
     {
         public List<Employee> EmployeeLogin(string LoginName, string Password)
         {
-
             OleDbConnection connection = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + @"C:\Users\Mektrik\Desktop\HeadSpring\HeadSpring2.mdb;Persist Security Info=False;");
             List<Employee> employeeList = new List<Employee>();
             connection.Open();
                 try
                 {
-                    
                     OleDbCommand cmd = new OleDbCommand("Select * from EmployeeData where UserName = @LoginName and Password= @Password", connection);
                     cmd.Parameters.AddWithValue("@LoginName", LoginName);
                     cmd.Parameters.AddWithValue("@Password", Password);
@@ -47,16 +45,14 @@ namespace HeadSpringWcf
                         }
                         return employeeList;
                     }
+                    connection.Close();
                     cmd.Dispose();
                 }
                 catch (Exception ex)
                 {
                     connection.Close();
                 }
-                finally
-                {
-                    connection.Close();
-                }
+
                 return employeeList;
         }
 
@@ -98,8 +94,7 @@ namespace HeadSpringWcf
 
         public DataSet AddEmployee(DataSet employees)
         {
-
-            var sqlQuery = "select * from EmployeeData where 0 = 1";
+            string sqlQuery = "select * from EmployeeData where 0 = 1";
             OleDbConnection connection = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + @"C:\Users\Mektrik\Desktop\HeadSpring\HeadSpring2.mdb;Persist Security Info=False;");
                     try
                     {
@@ -138,7 +133,7 @@ namespace HeadSpringWcf
 
         public DataSet UpdateEmployee(DataSet updateEmployees)
         {
-            var sqlQuery = "select * from EmployeeData where 0 = 1";
+            string sqlQuery = "select * from EmployeeData where 0 = 1";
             OleDbConnection connection = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + @"C:\Users\Mektrik\Desktop\HeadSpring\HeadSpring2.mdb;Persist Security Info=False;");
             try
             {
@@ -177,7 +172,7 @@ namespace HeadSpringWcf
 
         public DataSet DeleteEmployee(DataSet deleteEmployees)
         {
-            var sqlQuery = "select * from EmployeeData where 0 = 1";
+            string sqlQuery = "select * from EmployeeData where 0 = 1";
             OleDbConnection connection = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + @"C:\Users\Mektrik\Desktop\HeadSpring\HeadSpring2.mdb;Persist Security Info=False;");
             try
             {

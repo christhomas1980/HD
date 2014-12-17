@@ -25,8 +25,7 @@
         <asp:Button ID="btnSearch" runat="server" Text="Search"  OnClick="btnSearch_Click"  />
           <td><asp:Label ID="Label1" Text="Enter Employee Name:" runat="server"/></td>
        <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
-        <asp:Button ID="btnAdd" runat="server" Text="Add"  OnClick="btnAdd_Click" Enabled = "false" />
-        <asp:Button ID="btnSave" runat="server" Text="Save Updates" OnClick="btnSave_Click" Enabled = "false" />
+     
 
   <table align="Left">
   <tr>
@@ -69,6 +68,11 @@
     <td><asp:Label Text="Password" runat="server"/></td>
     <td><asp:TextBox ID="txtPassword" runat="server" Enabled = "false"/></td>
   </tr> 
+     <tr>
+    <td><asp:Button ID="btnAdd" runat="server" Text="Add New Employee"  OnClick="btnAdd_Click" Enabled = "false" /></td>
+    <td>  <asp:Button ID="btnSave" runat="server" Text="Save Updates To Employee" OnClick="btnSave_Click" Enabled = "false" /></td>
+  </tr> 
+      
 </table>
 
        <asp:DataGrid id="dataGrid"
@@ -103,7 +107,6 @@
            <asp:ButtonColumn CommandName="Delete" HeaderText="Delete" Text="Delete">
             </asp:ButtonColumn>
            </Columns>
-
       </asp:DataGrid>
 
     </div>

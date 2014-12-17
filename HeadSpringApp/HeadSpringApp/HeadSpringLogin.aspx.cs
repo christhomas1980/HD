@@ -12,13 +12,12 @@ namespace HeadSpringApp
         ServiceReference1.HeadSpringServiceClient HeadSpringService = new ServiceReference1.HeadSpringServiceClient();
         protected void Page_Load(object sender, EventArgs e)
         {
-            btnLogin.Click += new EventHandler(btnLogin_Click);
 
         }
 
-        void btnLogin_Click(object sender, EventArgs e)
+        protected void btnLogin_Click(object sender, EventArgs e)
         {
-            List<ServiceReference1.Employee> empList  = HeadSpringService.EmployeeLogin(txtUserName.Text, txtPassWord.Text).ToList();
+            List<ServiceReference1.Employee> empList = HeadSpringService.EmployeeLogin(txtUserName.Text, txtPassWord.Text).ToList();
             if (empList.Count == 1)
             {
                 Session["EmpRole"] = empList.FirstOrDefault().EmployeeRole;
@@ -26,7 +25,7 @@ namespace HeadSpringApp
             }
             else
             {
-
+                Response.Write("User Name or Password incorrect!");
             }
         }
     }

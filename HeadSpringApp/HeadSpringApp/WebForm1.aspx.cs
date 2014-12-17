@@ -33,7 +33,7 @@ namespace HeadSpringApp
 
                 foreach (DataGridColumn c in dataGrid.Columns)
                 {
-                    if (c.HeaderText == "Delete" || c.HeaderText == "Edit" || c.HeaderText == "EmpId" || c.HeaderText=="Role" ||c.HeaderText=="UserName" || c.HeaderText=="Pass")
+                    if (c.HeaderText == "Delete" || c.HeaderText == "Edit" || c.HeaderText == "Employee ID" || c.HeaderText=="Role" ||c.HeaderText=="UserName" || c.HeaderText=="Pass")
                     {
                         c.Visible = false;
                     }
@@ -44,6 +44,8 @@ namespace HeadSpringApp
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            this.btnSave.Enabled = false;
+            this.btnAdd.Enabled = true;
             DataSet ds = (DataSet)Session["EmployeeDataSet"];
             DataRow[] foundRows = ds.Tables["EmployeeData"].Select("EmpId ='" + txtEmpId.Text + "'");
             int rowIndex = ds.Tables["EmployeeData"].Rows.IndexOf(foundRows.FirstOrDefault());
@@ -60,6 +62,7 @@ namespace HeadSpringApp
             this.dataGrid.DataSource = ds;
             this.dataGrid.DataBind();
             Session["EmployeeDataSet"] = ds;
+            ClearTextBox();
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
@@ -82,6 +85,7 @@ namespace HeadSpringApp
             this.dataGrid.DataSource = ds;
             this.dataGrid.DataBind();
             Session["EmployeeDataSet"] = ds;
+            ClearTextBox();
         }
 
        protected void btnSearch_Click(object sender, EventArgs e)
@@ -91,7 +95,6 @@ namespace HeadSpringApp
             if (empRole == 0)
             {
                 btnAdd.Enabled = true;
-                btnSave.Enabled = true;
                 txtName.Enabled = true;
                 txtLocation.Enabled = true;
                 txtPassword.Enabled = true;
@@ -107,6 +110,19 @@ namespace HeadSpringApp
             this.dataGrid.DataBind();
             Session["EmployeeDataSet"] = ds;
         }
+
+       void ClearTextBox()
+       {
+           txtName.Text = "";
+           txtLocation.Text = "";
+           txtPassword.Text = "";
+           txtTitle.Text = "";
+           txtPhoneNumber.Text = "";
+           txtUserName.Text = "";
+           txtEmail.Text = "";
+           txtPassword.Text = "";
+       }
+
         protected void Grid_DeleteCommand(object source, DataGridCommandEventArgs e)
         {
             DataSet ds = (DataSet)Session["EmployeeDataSet"];
@@ -134,6 +150,8 @@ namespace HeadSpringApp
             this.roleList.SelectedValue = dataItem.Cells[5].Text;
             this.txtUserName.Text = dataItem.Cells[6].Text;
             this.txtPassword.Text = dataItem.Cells[7].Text;
+            this.btnSave.Enabled  = true;
+            this.btnAdd.Enabled = false;
         }
     }
 
